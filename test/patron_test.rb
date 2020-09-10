@@ -7,7 +7,7 @@ class PatronTest < Minitest::Test
   def test_it_exists
     patron_1 = Patron.new("Bob", 20)
 
-    assert_instance_of Patron, patron
+    assert_instance_of Patron, patron_1
   end
 
   def test_it_has_readable_attributes
@@ -26,6 +26,6 @@ class PatronTest < Minitest::Test
     patron_1.add_interest("Dead Sea Scrolls")
     patron_1.add_interest("Gems and Minerals")
 
-    assert_equal ["Dead Sea Scrolls", "Gems and Minerals"]
+    assert_equal ["Dead Sea Scrolls", "Gems and Minerals"], patron_1.interests
   end
 end
