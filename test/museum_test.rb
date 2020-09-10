@@ -172,9 +172,12 @@ class MuseumTest < Minitest::Test
     dmns.admit(patron_2)
     dmns.admit(patron_3)
 
-    dnms.ticket_lottery_contestants
+    dmns.ticket_lottery_contestants(dead_sea_scrolls)
 
-    assert_equal (patron_1 || patron_2), dnms.draw_lottery_winner(dead_sea_scrolls)
-    assert_equal nil, dnms.draw_lottery_winner(gems_and_minerals)
+    expected_1 = "Bob"
+    expected_2 = "Johnny"
+
+    assert_equal expected_1 || expected_2, dmns.draw_lottery_winner(dead_sea_scrolls)
+    assert_equal nil, dmns.draw_lottery_winner(gems_and_minerals)
   end
 end
